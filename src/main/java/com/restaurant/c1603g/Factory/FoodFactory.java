@@ -7,11 +7,6 @@ import com.restaurant.c1603g.Factory.InterfaceFactory.CrudEntity;
 
 public class FoodFactory implements CrudEntity<Food>{
 
-	@Override
-	public Food getFood() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<Food> getAllFood() {
@@ -20,7 +15,7 @@ public class FoodFactory implements CrudEntity<Food>{
 	}
 
 	@Override
-	public boolean insertEntity(Food t) {
+	public boolean insertEntity(Food food) {
 		
 		return false;
 	}
@@ -35,6 +30,12 @@ public class FoodFactory implements CrudEntity<Food>{
 	public boolean deleteEntity(String id) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public Food getFood(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

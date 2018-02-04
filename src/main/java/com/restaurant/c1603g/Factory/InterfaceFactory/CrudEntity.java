@@ -4,10 +4,10 @@ import java.util.List;
 
 public interface CrudEntity<E> {
 	
-	E getFood();
+	E getFood(String id);
 	List<E> getAllFood();
-	boolean insertEntity(E t);
-	boolean updateEntity(E t);
+	boolean insertEntity(E e);
+	boolean updateEntity(E e);
 	boolean deleteEntity(String id);
 	
 }

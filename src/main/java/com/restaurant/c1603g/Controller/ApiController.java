@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restaurant.c1603g.Entity.Booking;
 import com.restaurant.c1603g.Entity.EntityService;
 import com.restaurant.c1603g.Entity.Table;
+import com.restaurant.c1603g.Entity.TypeFood;
 import com.restaurant.c1603g.Service.FoodService;
 import com.restaurant.c1603g.Service.OtherService;
 
@@ -40,9 +40,8 @@ public class ApiController {
 	
 	@CrossOrigin
 	@RequestMapping(value="/insert/food" , method= RequestMethod.POST)
-	public String insertFood(@RequestBody User user) {
-		System.out.println(user.name);
-		return user.name;	
+	public String insertTypeFood(@RequestBody TypeFood food) {
+		return foodService.insertTypeFood(food);	
 	}
 	
 	@RequestMapping("/check/table/{param}")
