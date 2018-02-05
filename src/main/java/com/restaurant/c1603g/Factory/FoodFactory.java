@@ -9,14 +9,7 @@ public class FoodFactory implements CrudEntity<Food>{
 
 
 	@Override
-	public List<Food> getAllFood() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean insertEntity(Food food) {
-		
+	public boolean insertEntity(Food food) {	
 		return false;
 	}
 
@@ -34,6 +27,12 @@ public class FoodFactory implements CrudEntity<Food>{
 
 	@Override
 	public Food getFood(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Food> getAllFood(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

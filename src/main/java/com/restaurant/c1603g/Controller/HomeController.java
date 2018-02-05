@@ -11,7 +11,9 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public ModelAndView homeView() {
+		
 		return new ModelAndView("namePage");
+		
 	}
 		
 	
