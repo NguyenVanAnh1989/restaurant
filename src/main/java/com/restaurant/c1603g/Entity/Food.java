@@ -1,23 +1,26 @@
 package com.restaurant.c1603g.Entity;
 
 public class Food {
+	
 	private String id;
-	private String type_food;
+	private String type_food_id;
 	private String name;
 	private String image;
 	private String description;
 	private double price;
+	private int activated;
+	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getType_food() {
-		return type_food;
+	public String getType_food_id() {
+		return type_food_id;
 	}
-	public void setType_food(String type_food) {
-		this.type_food = type_food;
+	public void setType_food_id(String type_food_id) {
+		this.type_food_id = type_food_id;
 	}
 	public String getName() {
 		return name;
@@ -43,6 +46,14 @@ public class Food {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	public int getActivated() {
+		return activated;
+	}
+	public void setActivated(int activated) {
+		this.activated = activated;
+	}
+	
+	
 	
 	
 }

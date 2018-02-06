@@ -35,7 +35,7 @@ public class ApiTypeFoodController {
 		return typeFoodService.getTypeFood(id);
 	}
 	
-	@RequestMapping(value = "/serchAll/TypeFood" , method = RequestMethod.GET)
+	@RequestMapping(value = "/searchAll/typefood" , method = RequestMethod.GET)
 	public List<TypeFood> getALlTypeFood(@RequestParam("name") String name){
 		return typeFoodService.getAllFood(name);
 	}
