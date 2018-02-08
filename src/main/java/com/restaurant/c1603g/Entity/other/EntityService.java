@@ -1,50 +1,40 @@
-package com.restaurant.c1603g.Entity;
+package com.restaurant.c1603g.Entity.other;
 
-public class TypeFood {
+public class EntityService {
 	private String id;
 	private String name;
 	private String description;
-	private String unit;
-	private int active;
-
+	private int discount;
+	private String image;
 	public String getId() {
 		return id;
 	}
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public String getUnit() {
-		return unit;
+	public int getDiscount() {
+		return discount;
 	}
-
-	public void setUnit(String unit) {
-		this.unit = unit;
+	public void setDiscount(int discount) {
+		this.discount = discount;
 	}
-
-	public int getActive() {
-		return active;
+	public String getImage() {
+		return image;
 	}
-
-	public void setActive(int active) {
-		this.active = active;
+	public void setImage(String image) {
+		this.image = image;
 	}
-
+	
 }

@@ -1,38 +1,45 @@
 package com.restaurant.c1603g.Factory;
 
 import java.util.List;
+
+import com.restaurant.c1603g.DAO.CommonDAO;
 import com.restaurant.c1603g.DAO.TypeFoodDao;
-import com.restaurant.c1603g.Entity.TypeFood;
+import com.restaurant.c1603g.Entity.food.TypeFood;
+import com.restaurant.c1603g.Entity.other.DeclareId;
 import com.restaurant.c1603g.Factory.InterfaceFactory.CrudEntity;
 
 public class TypeFoodFactory implements CrudEntity<TypeFood>{
 
 	@Override
-	public TypeFood getFood(String id) {
-		return new TypeFoodDao().getTypeFoodById(id);
+	public String insertEntity(TypeFood typeFood) {
+		DeclareId declare = new CommonDAO().getIdOfEntity("TF");
+		typeFood.setId(declare.toString());
+		if(new TypeFoodDao().insertEntity(typeFood) != null) {
+			new CommonDAO().updateIdOfEntity(declare.getNameId(),declare.getValue());
+			return "Success Full Insert";
+		}else {
+			return "Not Success Full can be duplicate or Fail some thing";
+		}
 	}
 
 	@Override
-	public boolean insertEntity(TypeFood typeFood) {
-		String idTypeFood = new String(new FactoryCommon().getDataInFile("D:/Id.txt"));
-		idTypeFood = new FactoryCommon().resolveTextAndInteger("FD",idTypeFood.trim());
-		typeFood.setId(idTypeFood.trim());
-		return new TypeFoodDao().insert(typeFood);
+	public String updateEntity(TypeFood e) {
+		return new TypeFoodDao().updateEntity(e);
 	}
 
 	@Override
-	public boolean updateEntity(TypeFood e) {
-		return new TypeFoodDao().updateTypeFood(e);
+	public String deleteEntity(String id) {
+		return new TypeFoodDao().deleteEntity(id);
 	}
 
 	@Override
-	public boolean deleteEntity(String id) {
-		return new TypeFoodDao().deleteTypeFood(id);
+	public TypeFood getEntity(String id) {
+		return new TypeFoodDao().getEntityById(id);
 	}
 
 	@Override
-	public List<TypeFood> getAllFood(String name) {
-		return new TypeFoodDao().getTypeFoodByName(name);
+	public List<TypeFood> getAllEntity(String name) {
+		return new TypeFoodDao().getALlEntityByName(name);
 	}
 
 

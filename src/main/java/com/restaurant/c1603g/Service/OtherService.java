@@ -2,7 +2,7 @@ package com.restaurant.c1603g.Service;
 
 import org.springframework.stereotype.Service;
 
-import com.restaurant.c1603g.Entity.EntityService;
+import com.restaurant.c1603g.Entity.other.EntityService;
 
 @Service
 public class OtherService {

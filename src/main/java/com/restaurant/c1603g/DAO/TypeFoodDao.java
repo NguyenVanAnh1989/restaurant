@@ -1,49 +1,19 @@
 package com.restaurant.c1603g.DAO;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.restaurant.c1603g.Config.SqlConfiguration;
-import com.restaurant.c1603g.Entity.TypeFood;
 import com.restaurant.c1603g.Constant.SqlQueries;
+import com.restaurant.c1603g.DAO.Responsibility.DAOResponsibility;
+import com.restaurant.c1603g.DAO.Responsibility.SqlConnectDAO;
+import com.restaurant.c1603g.Entity.food.TypeFood;
 
-public class TypeFoodDao {
-	
-	public Connection getConnection() {
-		return new SqlConfiguration().getConnection();
-	}
-	
-	public PreparedStatement preparedStatement(String sql) {
-		try {
-			return getConnection().prepareStatement(sql);
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-	
-	public boolean insert(TypeFood typefood) {
-		try {
-			PreparedStatement prepareState = preparedStatement(SqlQueries.INSERT_TYPE_FOOD);			
-			prepareState.setString(1,typefood.getId());
-			prepareState.setString(2,typefood.getName());
-			prepareState.setString(3, typefood.getDescription());
-			prepareState.setString(4, typefood.getUnit());
-			prepareState.setInt(5,typefood.getActive());
-			return prepareState.executeUpdate() > 0;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-	
-	public TypeFood getTypeFoodById(String id) {
-		
+public class TypeFoodDao extends SqlConnectDAO implements DAOResponsibility<TypeFood>{
+
+	@Override
+	public TypeFood getEntityById(String id) {
 		PreparedStatement preparedStatement;
 		TypeFood typeFood;
 		try {
@@ -63,11 +33,10 @@ public class TypeFoodDao {
 			e.printStackTrace();
 		}
 		return null;
-		
 	}
 
-	
-	public List<TypeFood> getTypeFoodByName(String name) {
+	@Override
+	public List<TypeFood> getALlEntityByName(String name) {
 		List<TypeFood> listTypeFood=new ArrayList<>();
 		PreparedStatement preparedStatement;
 		TypeFood typeFood;
@@ -83,7 +52,6 @@ public class TypeFoodDao {
 				typeFood.setUnit(result.getString(4));
 				typeFood.setActive(result.getInt(5));
 				listTypeFood.add(typeFood);
-
 			}
 			return listTypeFood;
 		} catch (SQLException e) {
@@ -91,8 +59,9 @@ public class TypeFoodDao {
 		}
 		return null;
 	}
-	
-	public boolean updateTypeFood(TypeFood typeFood) {
+
+	@Override
+	public String updateEntity(TypeFood typeFood) {
 		PreparedStatement preparedStatement;
 		try {
 			preparedStatement = preparedStatement(SqlQueries.UPDATE_TYPE_FOOD);
@@ -101,22 +70,40 @@ public class TypeFoodDao {
 			preparedStatement.setString(3, typeFood.getUnit());
 			preparedStatement.setInt(4,typeFood.getActive());
 			preparedStatement.setString(5,typeFood.getId());
-			return preparedStatement.executeUpdate() > 0;
+			return preparedStatement.executeUpdate() > 0 ? "Success full update" : "Data Not valid";
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		return "false : Sql not correct See Log inside controler";
 	}
 
-	public boolean deleteTypeFood(String id) {
+	@Override
+	public String deleteEntity(String id) {
 		try {
 			PreparedStatement preparedStatement = getConnection().prepareStatement(SqlQueries.DELETE_TYPE_FOOD);
 			preparedStatement.setString(1,id);
-			return preparedStatement.executeUpdate() > 0;
+			return preparedStatement.executeUpdate() > 0 ? "Success full Delete" : "Data Not valid";
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		return "false : Sql not correct See Log inside controler";
+	}
+
+	@Override
+	public String insertEntity(TypeFood typefood) {
+		try {
+			PreparedStatement prepareState = preparedStatement(SqlQueries.INSERT_TYPE_FOOD);			
+			prepareState.setString(1,typefood.getId());
+			prepareState.setString(2,typefood.getName());
+			prepareState.setString(3, typefood.getDescription());
+			prepareState.setString(4, typefood.getUnit());
+			prepareState.setInt(5,typefood.getActive());
+			return prepareState.executeUpdate() > 0 ? "Success full Insert" : "Data Not valid";
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "false : Sql not correct See Log inside controler";
+
 	}
 	
 	

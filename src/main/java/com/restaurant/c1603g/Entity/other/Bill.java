@@ -1,4 +1,4 @@
-package com.restaurant.c1603g.Entity;
+package com.restaurant.c1603g.Entity.other;
 
 public class Bill {
 	private String id;

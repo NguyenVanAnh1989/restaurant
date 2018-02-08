@@ -1,10 +1,9 @@
-package com.restaurant.c1603g.Entity;
+package com.restaurant.c1603g.Entity.other;
 
-public class Table {
-	
+public class ManageUser {
 	private String id;
 	private String name;
-	private String type;
+	private String phone;
 	public String getId() {
 		return id;
 	}
@@ -17,14 +16,11 @@ public class Table {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getType() {
-		return type;
+	public String getPhone() {
+		return phone;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-	
-	
-	
 	
 }

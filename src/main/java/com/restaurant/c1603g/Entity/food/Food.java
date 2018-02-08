@@ -1,4 +1,4 @@
-package com.restaurant.c1603g.Entity;
+package com.restaurant.c1603g.Entity.food;
 
 public class Food {
 	
@@ -52,8 +52,7 @@ public class Food {
 	public void setActivated(int activated) {
 		this.activated = activated;
 	}
-	
-	
+
 	
 	
 }

@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 public class C1603gApplication {
 
 	public static void main(String[] args) {
-		
 		SpringApplication.run(C1603gApplication.class, args);
 		
 	}

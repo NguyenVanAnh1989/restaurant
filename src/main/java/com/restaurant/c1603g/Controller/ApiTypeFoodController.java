@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.restaurant.c1603g.Entity.EntityService;
-import com.restaurant.c1603g.Entity.TypeFood;
+import com.restaurant.c1603g.Entity.food.TypeFood;
+import com.restaurant.c1603g.Entity.other.EntityService;
 import com.restaurant.c1603g.Service.OtherService;
 import com.restaurant.c1603g.Service.TypeFoodService;
 
@@ -46,12 +46,12 @@ public class ApiTypeFoodController {
 	}
 
 	@RequestMapping(value = "/update/typefood", method = RequestMethod.POST)
-	public boolean updateTypeFood(@RequestBody TypeFood typefood) {
+	public String updateTypeFood(@RequestBody TypeFood typefood) {
 		return typeFoodService.updateTypeFood(typefood);
 	}
 	
 	@RequestMapping(value = "/delete/typefood", method = RequestMethod.POST)
-	public boolean deleteTypeFood(@RequestParam("id") String typefood) {
+	public String deleteTypeFood(@RequestParam("Id") String typefood) {
 		return typeFoodService.deleteTypeFood(typefood);
 	}
 	
