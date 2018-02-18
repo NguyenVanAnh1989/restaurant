@@ -2,11 +2,11 @@ package com.restaurant.c1603g.DAO;
 
 import java.util.List;
 
-import com.restaurant.c1603g.DAO.Responsibility.DAOResponsibility;
-import com.restaurant.c1603g.DAO.Responsibility.SqlConnectDAO;
+import com.restaurant.c1603g.DAO.Responsitory.DAOResponsitory;
+import com.restaurant.c1603g.DAO.Responsitory.SqlConnectDAO;
 import com.restaurant.c1603g.Entity.addmin.Addmin;
 
-public class AddminDAO extends SqlConnectDAO implements DAOResponsibility<Addmin>{
+public class AddminDAO extends SqlConnectDAO implements DAOResponsitory<Addmin>{
 
 	@Override
 	public Addmin getEntityById(String id) {
@@ -15,7 +15,7 @@ public class AddminDAO extends SqlConnectDAO implements DAOResponsibility<Addmin
 	}
 
 	@Override
-	public List<Addmin> getALlEntityByName(String name) {
+	public List<Addmin> getManyEntityByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

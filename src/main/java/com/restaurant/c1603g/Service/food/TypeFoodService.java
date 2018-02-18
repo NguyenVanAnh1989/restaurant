@@ -1,14 +1,14 @@
-package com.restaurant.c1603g.Service;
+package com.restaurant.c1603g.Service.food;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 import com.restaurant.c1603g.Entity.food.TypeFood;
-import com.restaurant.c1603g.Factory.TypeFoodFactory;
+import com.restaurant.c1603g.Factory.food.TypeFoodFactory;
 
 @Service
 public class TypeFoodService {
 
-	public List<TypeFood> getAllFood(String name) {
+	public List<TypeFood> getTypeFoodByName(String name) {
 		return new TypeFoodFactory().getAllEntity(name);
 	}
 

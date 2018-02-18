@@ -25,9 +25,32 @@ public class SqlQueries {
 	
 	public static final String DELETE_FOOD = "UPDATE tblFood SET activated = 0 WHERE id = ?"; 
 	
+	// SQL for Table entity 
+	
+	public static final String GET_TABLE="SELECT * FROM tblTable WHERE id = ?";
+	
+	public static final String GET_TABLE_BY_TYPE_SEAT = "  SELECT * FROM tblTable WHERE type_table_id = (SELECT id FROM tblTypeTable WHERE type_seat LIKE ?)" ;
+	
+	public static final String INSERT_TABLE = "INSERT INTO tblTable VALUES (?,?,?)" ;
+	
+	public static final String UPDATE_TABLE = "UPDATE tblTable SET type_table_id = ?, activated =?  WHERE id = ?";
+	
+	public static final String DELETE_TABLE = "UPDATE tblTable SET activated = 0 WHERE id = ?";
+	
+	// SQL for Type table entity
+	public static final String GET_TYPE_TABLE="SELECT * FROM tblTypeTable WHERE id = ?";
+	
+	public static final String GET_TYPE_TABLE_BY_NAME = "SELECT * FROM tblTypeTable WHERE type_seat LIKE ?" ;
+	
+	public static final String INSERT_TYPE_TABLE = "INSERT INTO tblTypeTable VALUES (?,?,?,?,?,?)" ;
+	
+	public static final String UPDATE_TYPE_TABLE = "UPDATE tblTypeTable SET type_seat =? , type_room =? ,description =? ,activated =? ,price =? WHERE id = ?";
+	
+	public static final String DELETE_TYPE_TABLE = "UPDATE tblTypeTable SET activated = 0 WHERE id = ?";
 	
 	
-	/*tblSaveId is table of SaveId you can change by you table*/
+	
+	/*tblSaveId is table of SaveId you can change by you type table*/
 	public static final String GET_ID_FOR_ENTITY = "SELECT * FROM tblSaveId WHERE nameId = ?"; 
 	
 	public static final String UPDATE_ID_FOR_ENTITY = "UPDATE tblSaveId SET value = ? WHERE nameId = ?";

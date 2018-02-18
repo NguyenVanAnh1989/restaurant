@@ -1,4 +1,4 @@
-package com.restaurant.c1603g.DAO;
+package com.restaurant.c1603g.DAO.food;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,11 +6,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.restaurant.c1603g.Constant.SqlQueries;
-import com.restaurant.c1603g.DAO.Responsibility.DAOResponsibility;
-import com.restaurant.c1603g.DAO.Responsibility.SqlConnectDAO;
+import com.restaurant.c1603g.DAO.Responsitory.DAOResponsitory;
+import com.restaurant.c1603g.DAO.Responsitory.SqlConnectDAO;
 import com.restaurant.c1603g.Entity.food.TypeFood;
 
-public class TypeFoodDao extends SqlConnectDAO implements DAOResponsibility<TypeFood>{
+public class TypeFoodDao extends SqlConnectDAO implements DAOResponsitory<TypeFood>{
 
 	@Override
 	public TypeFood getEntityById(String id) {
@@ -20,7 +20,7 @@ public class TypeFoodDao extends SqlConnectDAO implements DAOResponsibility<Type
 			preparedStatement = preparedStatement(SqlQueries.SEARCH_TYPE_FOOD);
 			preparedStatement.setString(1,id);
 			ResultSet result = preparedStatement.executeQuery();
-			while (result.next()) {
+			if (result.next()) {
 				typeFood = new TypeFood();
 				typeFood.setId(result.getString(1));
 				typeFood.setName(result.getString(2));
@@ -36,7 +36,7 @@ public class TypeFoodDao extends SqlConnectDAO implements DAOResponsibility<Type
 	}
 
 	@Override
-	public List<TypeFood> getALlEntityByName(String name) {
+	public List<TypeFood> getManyEntityByName(String name) {
 		List<TypeFood> listTypeFood=new ArrayList<>();
 		PreparedStatement preparedStatement;
 		TypeFood typeFood;

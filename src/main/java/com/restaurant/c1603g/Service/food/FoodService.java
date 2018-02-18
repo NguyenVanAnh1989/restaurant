@@ -1,11 +1,11 @@
-package com.restaurant.c1603g.Service;
+package com.restaurant.c1603g.Service.food;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.restaurant.c1603g.Entity.food.Food;
-import com.restaurant.c1603g.Factory.FoodFactory;
+import com.restaurant.c1603g.Factory.food.FoodFactory;
 
 
 @Service
@@ -29,7 +29,7 @@ public class FoodService {
 		return false;
 	}
 
-	public List<Food> getAllFoodByName(String name) {
+	public List<Food> getFoodsByName(String name) {
 		return new FoodFactory().getAllEntity(name);
 	}
 	
