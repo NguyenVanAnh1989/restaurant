@@ -40,7 +40,7 @@ public class FoodFactory implements CrudEntity<Food>{
 	}
 
 	@Override
-	public List<Food> getAllEntity(String name) {
+	public List<Food> getManyEntityByName(String name) {
 		return new FoodDAO().getManyEntityByName(name);
 	}
 	

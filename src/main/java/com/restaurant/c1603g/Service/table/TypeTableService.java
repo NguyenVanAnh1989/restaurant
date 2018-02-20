@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.restaurant.c1603g.Entity.other.TypeTable;
+import com.restaurant.c1603g.Entity.table.TypeTable;
 import com.restaurant.c1603g.Factory.table.TypeTableFactory;
 
 @Service
@@ -15,7 +15,7 @@ public class TypeTableService {
 	}
 
 	public List<TypeTable> getTypeTablesByName(String name) {
-		return new TypeTableFactory().getAllEntity(name);
+		return new TypeTableFactory().getManyEntityByName(name);
 	}
 
 	public String insertTypeTable(TypeTable typeTable) {

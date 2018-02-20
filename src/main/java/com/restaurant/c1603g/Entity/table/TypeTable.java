@@ -1,4 +1,4 @@
-package com.restaurant.c1603g.Entity.other;
+package com.restaurant.c1603g.Entity.table;
 
 public class TypeTable {
 	private String id;

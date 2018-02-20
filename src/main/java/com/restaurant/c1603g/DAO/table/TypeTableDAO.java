@@ -9,7 +9,7 @@ import java.util.List;
 import com.restaurant.c1603g.Constant.SqlQueries;
 import com.restaurant.c1603g.DAO.Responsitory.DAOResponsitory;
 import com.restaurant.c1603g.DAO.Responsitory.SqlConnectDAO;
-import com.restaurant.c1603g.Entity.other.TypeTable;
+import com.restaurant.c1603g.Entity.table.TypeTable;
 
 public class TypeTableDAO extends SqlConnectDAO implements DAOResponsitory<TypeTable> {
 

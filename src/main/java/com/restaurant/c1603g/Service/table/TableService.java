@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.restaurant.c1603g.Entity.other.Table;
+import com.restaurant.c1603g.Entity.table.Table;
 import com.restaurant.c1603g.Factory.table.TableFactory;
 
 
@@ -16,7 +16,7 @@ public class TableService {
 	}
 
 	public List<Table> getTablesByTypeSeat(String typeseat) {
-		return new TableFactory().getAllEntity(typeseat);
+		return new TableFactory().getManyEntityByName(typeseat);
 	}
 
 	public String insertTable(Table table) {

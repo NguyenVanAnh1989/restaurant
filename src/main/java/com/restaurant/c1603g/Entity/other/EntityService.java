@@ -6,6 +6,7 @@ public class EntityService {
 	private String description;
 	private int discount;
 	private String image;
+	private int activated;
 	public String getId() {
 		return id;
 	}
@@ -36,5 +37,12 @@ public class EntityService {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	public int getActivated() {
+		return activated;
+	}
+	public void setActivated(int activated) {
+		this.activated = activated;
+	}
+	
 	
 }

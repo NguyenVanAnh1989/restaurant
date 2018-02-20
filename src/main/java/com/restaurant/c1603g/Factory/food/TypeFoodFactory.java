@@ -38,7 +38,7 @@ public class TypeFoodFactory implements CrudEntity<TypeFood>{
 	}
 
 	@Override
-	public List<TypeFood> getAllEntity(String name) {
+	public List<TypeFood> getManyEntityByName(String name) {
 		return new TypeFoodDao().getManyEntityByName(name);
 	}
 

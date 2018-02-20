@@ -5,7 +5,7 @@ import java.util.List;
 public interface CrudEntity<E> {
 
 	E getEntity(String id);
-	List<E> getAllEntity(String name);
+	List<E> getManyEntityByName(String name);
 	String insertEntity(E e);
 	String updateEntity(E e);
 	String deleteEntity(String id);

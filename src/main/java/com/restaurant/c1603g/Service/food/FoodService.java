@@ -30,7 +30,7 @@ public class FoodService {
 	}
 
 	public List<Food> getFoodsByName(String name) {
-		return new FoodFactory().getAllEntity(name);
+		return new FoodFactory().getManyEntityByName(name);
 	}
 	
 	public String insertFood(Food food) {

@@ -9,7 +9,7 @@ import com.restaurant.c1603g.Factory.food.TypeFoodFactory;
 public class TypeFoodService {
 
 	public List<TypeFood> getTypeFoodByName(String name) {
-		return new TypeFoodFactory().getAllEntity(name);
+		return new TypeFoodFactory().getManyEntityByName(name);
 	}
 
 	public TypeFood getTypeFood(String id) {

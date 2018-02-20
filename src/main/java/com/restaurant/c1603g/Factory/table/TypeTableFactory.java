@@ -5,7 +5,7 @@ import java.util.List;
 import com.restaurant.c1603g.DAO.CommonDAO;
 import com.restaurant.c1603g.DAO.table.TypeTableDAO;
 import com.restaurant.c1603g.Entity.other.DeclareId;
-import com.restaurant.c1603g.Entity.other.TypeTable;
+import com.restaurant.c1603g.Entity.table.TypeTable;
 import com.restaurant.c1603g.Factory.InterfaceFactory.CrudEntity;
 
 public class TypeTableFactory implements CrudEntity<TypeTable> {
@@ -16,7 +16,7 @@ public class TypeTableFactory implements CrudEntity<TypeTable> {
 	}
 
 	@Override
-	public List<TypeTable> getAllEntity(String name) {
+	public List<TypeTable> getManyEntityByName(String name) {
 		return new TypeTableDAO().getManyEntityByName(name);
 	}
 
