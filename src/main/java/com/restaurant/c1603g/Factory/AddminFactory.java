@@ -14,7 +14,7 @@ public class AddminFactory implements CrudEntity<Addmin>{
 	}
 
 	@Override
-	public List<Addmin> getAllEntity(String name) {
+	public List<Addmin> getManyEntityByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

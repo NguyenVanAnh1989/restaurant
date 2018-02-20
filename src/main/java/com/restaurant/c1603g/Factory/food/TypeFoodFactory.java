@@ -1,9 +1,9 @@
-package com.restaurant.c1603g.Factory;
+package com.restaurant.c1603g.Factory.food;
 
 import java.util.List;
 
 import com.restaurant.c1603g.DAO.CommonDAO;
-import com.restaurant.c1603g.DAO.TypeFoodDao;
+import com.restaurant.c1603g.DAO.food.TypeFoodDao;
 import com.restaurant.c1603g.Entity.food.TypeFood;
 import com.restaurant.c1603g.Entity.other.DeclareId;
 import com.restaurant.c1603g.Factory.InterfaceFactory.CrudEntity;
@@ -38,8 +38,8 @@ public class TypeFoodFactory implements CrudEntity<TypeFood>{
 	}
 
 	@Override
-	public List<TypeFood> getAllEntity(String name) {
-		return new TypeFoodDao().getALlEntityByName(name);
+	public List<TypeFood> getManyEntityByName(String name) {
+		return new TypeFoodDao().getManyEntityByName(name);
 	}
 
 

@@ -1,4 +1,4 @@
-package com.restaurant.c1603g.Controller;
+package com.restaurant.c1603g.Controller.food;
 
 import java.util.List;
 
@@ -10,34 +10,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.restaurant.c1603g.Entity.food.TypeFood;
-import com.restaurant.c1603g.Entity.other.EntityService;
-import com.restaurant.c1603g.Service.OtherService;
-import com.restaurant.c1603g.Service.TypeFoodService;
+import com.restaurant.c1603g.Service.food.TypeFoodService;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/api")
-public class ApiTypeFoodController {
-
-	@Autowired
-	OtherService otherService;
+public class TypeFoodApiController {
 
 	@Autowired
 	TypeFoodService typeFoodService;
 
-	@RequestMapping("/get/food")
-	public List<EntityService> getFoodService() {
-		return null;
-	}
-
-	@RequestMapping("/search/typefood")
+	@RequestMapping("/get/typefood")
 	public TypeFood searchFoodService(@RequestParam("Id") String id) {
 		return typeFoodService.getTypeFood(id);
 	}
 	
-	@RequestMapping(value = "/searchAll/typefood" , method = RequestMethod.GET)
-	public List<TypeFood> getALlTypeFood(@RequestParam("name") String name){
-		return typeFoodService.getAllFood(name);
+	@RequestMapping(value = "/get/typefoods" , method = RequestMethod.GET)
+	public List<TypeFood> getTypeFoodByName(@RequestParam("name") String name){
+		return typeFoodService.getTypeFoodByName(name);
 	}
 
 	@RequestMapping(value = "/insert/typefood", method = RequestMethod.POST)

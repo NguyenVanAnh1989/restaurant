@@ -1,4 +1,4 @@
-package com.restaurant.c1603g.Controller;
+package com.restaurant.c1603g.Controller.food;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.restaurant.c1603g.Entity.food.Food;
-import com.restaurant.c1603g.Service.FoodService;
+import com.restaurant.c1603g.Service.food.FoodService;
 
 @RestController
 @RequestMapping("/api")
@@ -25,8 +25,8 @@ public class FoodApiController {
 	}
 
 	@GetMapping("/get/foods")
-	public List<Food> getAllFood(@RequestParam("name") String name) {
-		return foodService.getAllFoodByName(name);
+	public List<Food> getFoodByName(@RequestParam("name") String name) {
+		return foodService.getFoodsByName(name);
 	}
 
 	@PostMapping("/insert/food")
