@@ -2,11 +2,11 @@ package com.restaurant.c1603g.DAO;
 
 import java.util.List;
 
-import com.restaurant.c1603g.DAO.Responsitory.DAOResponsitory;
+import com.restaurant.c1603g.DAO.Responsitory.ResponsitoryDAO;
 import com.restaurant.c1603g.DAO.Responsitory.SqlConnectDAO;
-import com.restaurant.c1603g.Entity.addmin.Addmin;
+import com.restaurant.c1603g.Entity.manage.Addmin;
 
-public class AddminDAO extends SqlConnectDAO implements DAOResponsitory<Addmin>{
+public class AddminDAO extends SqlConnectDAO implements ResponsitoryDAO<Addmin>{
 
 	@Override
 	public Addmin getEntityById(String id) {

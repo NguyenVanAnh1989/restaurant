@@ -2,7 +2,7 @@ package com.restaurant.c1603g.Factory;
 
 import java.util.List;
 
-import com.restaurant.c1603g.Entity.addmin.Addmin;
+import com.restaurant.c1603g.Entity.manage.Addmin;
 import com.restaurant.c1603g.Factory.InterfaceFactory.CrudEntity;
 
 public class AddminFactory implements CrudEntity<Addmin>{
