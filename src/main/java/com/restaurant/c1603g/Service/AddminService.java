@@ -2,7 +2,8 @@ package com.restaurant.c1603g.Service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
-import com.restaurant.c1603g.Entity.addmin.Addmin;
+
+import com.restaurant.c1603g.Entity.manage.Addmin;
 
 @Service
 public class AddminService {

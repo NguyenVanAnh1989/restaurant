@@ -1,4 +1,4 @@
-package com.restaurant.c1603g.Entity.addmin;
+package com.restaurant.c1603g.Entity.manage;
 
 public class Addmin {
 	private String id;
