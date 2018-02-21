@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.restaurant.c1603g.Constant.SqlQueries;
-import com.restaurant.c1603g.DAO.Responsitory.ResponsitoryDAO;
-import com.restaurant.c1603g.DAO.Responsitory.SqlConnectDAO;
+import com.restaurant.c1603g.DAO.Repository.RepositoryDAO;
+import com.restaurant.c1603g.DAO.Repository.SqlConnectDAO;
 import com.restaurant.c1603g.Entity.food.Food;
 
-public class FoodDAO extends SqlConnectDAO implements ResponsitoryDAO<Food>{
+public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 
 	@Override
 	public Food getEntityById(String id) {

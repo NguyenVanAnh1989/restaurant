@@ -1,4 +1,4 @@
-package com.restaurant.c1603g.DAO.Responsitory;
+package com.restaurant.c1603g.DAO.Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

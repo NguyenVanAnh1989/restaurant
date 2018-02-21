@@ -23,27 +23,27 @@ public class ServiceController {
 	@Autowired
 	OtherService otherService;
 	
-	@GetMapping("/get/Service")
+	@GetMapping("/get/service")
 	public EntityService getService(@RequestParam("Id") String id) {
 		return otherService.getService(id);
 	}
 
-	@GetMapping("/get/Services")
+	@GetMapping("/get/services")
 	public List<EntityService> getListService(@RequestParam("name") String name) {
 		return otherService.getManyServiceByName(name);
 	}
 
-	@PostMapping("/insert/Service")
+	@PostMapping("/insert/service")
 	public String insertService(@RequestBody EntityService service) {
 		return otherService.insertService(service);
 	}
 
-	@PostMapping("/update/Service")
+	@PostMapping("/update/service")
 	public String updateService(@RequestBody EntityService service) {
 		return otherService.updateService(service);
 	}
 
-	@PostMapping("/delete/Service")
+	@PostMapping("/delete/service")
 	public String deleteService(@RequestParam("Id") String id) {
 		return otherService.deleteService(id);
 	}

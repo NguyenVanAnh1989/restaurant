@@ -71,9 +71,6 @@ public class SqlQueries {
 
 	public static final String DELETE_RECEPTIONIST = "UPDATE tblReceptionist SET activated = 0 WHERE id = ?";
 	
-	
-	
-	
 	/* tblSaveId is table of SaveId you can change by you type table */
 	public static final String GET_ID_FOR_ENTITY = "SELECT * FROM tblSaveId WHERE nameId = ?";
 
