@@ -1,11 +1,20 @@
 package com.restaurant.c1603g.Factory;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class FactoryCommon {
-	//Increment Id for entity
-	public String resolveTextAndInteger(String firstText,String number) {
+	
+	
+	public String convertDateToString(Date date) {
 		
-		return "";
+		SimpleDateFormat simple = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String dateString = simple.format(date);
+		return dateString;
+		
 	}
+	
+	
 	
 }
 

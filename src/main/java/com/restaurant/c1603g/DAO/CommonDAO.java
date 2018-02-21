@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.restaurant.c1603g.Constant.SqlQueries;
-import com.restaurant.c1603g.DAO.Responsitory.SqlConnectDAO;
+import com.restaurant.c1603g.DAO.Repository.SqlConnectDAO;
 import com.restaurant.c1603g.Entity.other.DeclareId;
 
 public class CommonDAO extends SqlConnectDAO{

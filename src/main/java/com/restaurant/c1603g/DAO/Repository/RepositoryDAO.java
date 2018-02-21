@@ -1,8 +1,8 @@
-package com.restaurant.c1603g.DAO.Responsitory;
+package com.restaurant.c1603g.DAO.Repository;
 
 import java.util.List;
 
-public interface ResponsitoryDAO<E> {
+public interface RepositoryDAO<E> {
 	
 	E getEntityById(String id);
 	List<E> getManyEntityByName(String name);
