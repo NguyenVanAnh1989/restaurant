@@ -4,28 +4,29 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.restaurant.c1603g.Entity.manage.Addmin;
+import com.restaurant.c1603g.Factory.AddminFactory;
 
 @Service
 public class AddminService {
 	
 	public Addmin getAddminById(String id) {
-		return null;
+		return new AddminFactory().getEntity(id);
 	}
 	
 	public List<Addmin> getAddminByName(String name){
-		return null;
+		return new AddminFactory().getManyEntityByName(name);
 	}
 	
 	public String insertAddmin(Addmin addmin) {
-		return null;
+		return new AddminFactory().insertEntity(addmin);
 	}
 	
 	public String updateAddmin(Addmin addmin) {
-		return null;
+		return new AddminFactory().updateEntity(addmin);
 	}
 	
-	public String deleteAddmin(Addmin addmin) {
-		return null;
+	public String deleteAddmin(String id) {
+		return new AddminFactory().deleteEntity(id);
 	}
 	
 	

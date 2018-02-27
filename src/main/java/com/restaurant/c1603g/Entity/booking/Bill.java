@@ -1,11 +1,12 @@
-package com.restaurant.c1603g.Entity.other;
+package com.restaurant.c1603g.Entity.booking;
 
 public class Bill {
 	private String id;
 	private String foodId;
-	private String quantity;
+	private int quantity;
 	private double price;
 	private String bookingId;
+	private int activated;
 
 	public String getId() {
 		return id;
@@ -23,11 +24,11 @@ public class Bill {
 		this.foodId = foodId;
 	}
 
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
@@ -45,6 +46,14 @@ public class Bill {
 
 	public void setBookingId(String bookingId) {
 		this.bookingId = bookingId;
+	}
+
+	public int getActivated() {
+		return activated;
+	}
+
+	public void setActivated(int activated) {
+		this.activated = activated;
 	}
 
 }
