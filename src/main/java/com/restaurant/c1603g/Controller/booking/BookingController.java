@@ -36,6 +36,7 @@ public class BookingController {
 	public String insertBooking(@RequestBody Booking booking) {
 		return bookingService.insertBooking(booking);
 	}
+	
 	@PostMapping("/update/booking")
 	public String updategetBooking(@RequestBody Booking booking) {
 		return bookingService.updateBooking(booking);
