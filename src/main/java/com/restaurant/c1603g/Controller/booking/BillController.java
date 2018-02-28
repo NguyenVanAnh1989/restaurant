@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restaurant.c1603g.Entity.booking.Bill;
-import com.restaurant.c1603g.Entity.booking.Booking;
 import com.restaurant.c1603g.Service.booking.BillService;
 
 
@@ -25,12 +24,12 @@ public class BillController {
 	BillService billService;
 
 	@GetMapping("/get/bill")
-	public Booking getBill(@RequestParam("Id") String id) {
+	public Bill getBill(@RequestParam("Id") String id) {
 		return billService.getBillById(id);
 	}
 
 	@GetMapping("/get/bills")
-	public List<Booking> getManyBillByName(@RequestParam("name") String name) {
+	public List<Bill> getManyBillByName(@RequestParam("name") String name) {
 		return billService.getManyBillByName(name);
 	}
 

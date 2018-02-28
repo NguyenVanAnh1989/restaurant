@@ -1,6 +1,7 @@
 package com.restaurant.c1603g.Entity.manage;
 
 public class Receptionist {
+	
 	private String id;
 	private String name;
 	private String phone;

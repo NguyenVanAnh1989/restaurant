@@ -5,20 +5,17 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.restaurant.c1603g.Entity.booking.Bill;
-import com.restaurant.c1603g.Entity.booking.Booking;
 import com.restaurant.c1603g.Factory.booking.BillFactory;
 
 @Service
 public class BillService {
 
-	public Booking getBillById(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Bill getBillById(String id) {
+		return new BillFactory().getEntity(id);
 	}
 
-	public List<Booking> getManyBillByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Bill> getManyBillByName(String name) {
+		return new BillFactory().getManyEntityByName(name);
 	}
 
 	public String insertBill(Bill bill) {
@@ -26,13 +23,11 @@ public class BillService {
 	}
 
 	public String updateBill(Bill bill) {
-		// TODO Auto-generated method stub
-		return null;
+		return new BillFactory().updateEntity(bill);
 	}
 
 	public String deleteBill(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return new BillFactory().deleteEntity(id);
 	}
 	
 	
