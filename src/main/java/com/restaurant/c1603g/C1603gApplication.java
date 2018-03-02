@@ -10,7 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.restaurant.c1603g.Entity.manage.Addmin;
+import com.restaurant.c1603g.Entity.manage.Admin;
 
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.restaurant.c1603g.Controller", "com.restaurant.c1603g.Service", "" })

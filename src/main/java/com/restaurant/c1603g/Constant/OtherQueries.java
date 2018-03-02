@@ -11,4 +11,9 @@ public class OtherQueries {
 	public static final String UPDATE_SERVICE = "UPDATE tblService SET name =? , description =? ,discount =? ,image =? ,activated =? WHERE id = ?";
 
 	public static final String DELETE_SERVICE = "UPDATE tblService SET activated = 0 WHERE id = ?";
+	
+	public static final String CHECK_CODE = "SELECT * FROM tblCode WHERE code = ?";
+	
+	public static final String DELETE_CODE = "DELETE FROM tblCode WHERE code = ?";
+	
 }

@@ -14,5 +14,9 @@ public class HomeController {
 		return new ModelAndView("namePage");
 	}
 		
+	@RequestMapping("/test")
+	public String getName() {
+		return "ok";
+	}
 	
 }
