@@ -16,14 +16,18 @@ public class ManageQueries {
 
 	// SQL for Addmin
 
-	public static final String GET_ADDMIN = "SELECT * FROM tblAddmin WHERE id = ?";
+	public static final String GET_ADMIN = "SELECT * FROM tblAdmin WHERE id = ?";
 
-	public static final String GET_ADDMIN_BY_NAME = "SELECT * FROM tblAddmin WHERE userName LIKE ?";
+	public static final String GET_ADMIN_BY_NAME = "SELECT * FROM tblAdmin WHERE userName LIKE ?";
+	
+	public static final String CHECK_EXIT_ADMIN = "SELECT * FROM tblAdmin WHERE userName = ?";
+	
+	public static final String CHECK_ADMIN_ACOUNT = "SELECT * FROM tblAdmin WHERE userName = ? AND password = ?";
 
-	public static final String INSERT_ADDMIN = "INSERT INTO tblAddmin VALUES (?,?,?,?,?)";
+	public static final String INSERT_ADMIN = "INSERT INTO tblAdmin VALUES (?,?,?,?,?)";
 
-	public static final String UPDATE_ADDMIN = "UPDATE tblAddmin SET userName = ? , password = ? ,permission = ?, activated = ? WHERE id = ?";
+	public static final String UPDATE_ADMIN = "UPDATE tblddmin SET userName = ? , password = ? ,permission = ?, activated = ? WHERE id = ?";
 
-	public static final String DELETE_ADDMIN = "UPDATE tblAddmin SET activated = 0 WHERE id = ?";
+	public static final String DELETE_ADMIN = "UPDATE tblAdmin SET activated = 0 WHERE id = ?";
 
 }
