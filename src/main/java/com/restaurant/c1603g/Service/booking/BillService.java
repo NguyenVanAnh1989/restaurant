@@ -14,8 +14,8 @@ public class BillService {
 		return new BillFactory().getEntity(id);
 	}
 
-	public List<Bill> getManyBillByName(String name) {
-		return new BillFactory().getManyEntityByName(name);
+	public List<Bill> getManyBillByIdBooking(String id) {
+		return new BillFactory().getManyBillByIdBooking(id);
 	}
 
 	public String insertBill(Bill bill) {

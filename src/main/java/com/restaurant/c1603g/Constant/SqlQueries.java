@@ -42,7 +42,7 @@ public class SqlQueries {
 
 	public static final String GET_TYPE_TABLE_BY_NAME = "SELECT * FROM tblTypeTable WHERE type_seat LIKE ?";
 
-	public static final String INSERT_TYPE_TABLE = "INSERT INTO tblTypeTable VALUES (?,?,?,?,?,?)";
+	public static final String INSERT_TYPE_TABLE = "INSERT INTO tblTypeTable VALUES (?,?,?,?,1,?)";
 
 	public static final String UPDATE_TYPE_TABLE = "UPDATE tblTypeTable SET type_seat =? , type_room =? ,description =? ,activated =? ,price =? WHERE id = ?";
 

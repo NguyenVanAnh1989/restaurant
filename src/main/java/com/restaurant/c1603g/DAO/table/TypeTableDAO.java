@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.Constant.SqlQueries;
 import com.restaurant.c1603g.DAO.Repository.RepositoryDAO;
 import com.restaurant.c1603g.DAO.Repository.SqlConnectDAO;
@@ -72,13 +73,12 @@ public class TypeTableDAO extends SqlConnectDAO implements RepositoryDAO<TypeTab
 			preparedStatement.setString(2, typeTable.getType_seat());
 			preparedStatement.setString(3, typeTable.getType_room());
 			preparedStatement.setString(4, typeTable.getDescription());
-			preparedStatement.setInt(5, typeTable.getActivated());
-			preparedStatement.setFloat(6, (float) typeTable.getPrice());
-			return preparedStatement.executeUpdate() > 0 ? "SuccessFull" : null;
+			preparedStatement.setFloat(5, (float) typeTable.getPrice());
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "Your query have false some where";
+		return LogInfo.EXCEPTION_INFO;
 	}
 
 	@Override
@@ -92,11 +92,11 @@ public class TypeTableDAO extends SqlConnectDAO implements RepositoryDAO<TypeTab
 			preparedStatement.setInt(4, typeTable.getActivated());
 			preparedStatement.setFloat(5, (float) typeTable.getPrice());
 			preparedStatement.setString(6, typeTable.getId());
-			return preparedStatement.executeUpdate() > 0 ? "SuccessFull" : "Notsuccess Full Id Not found";
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "Your query have false some where";
+		return LogInfo.EXCEPTION_INFO;
 	}
 
 	@Override
@@ -105,11 +105,11 @@ public class TypeTableDAO extends SqlConnectDAO implements RepositoryDAO<TypeTab
 		try {
 			preparedStatement = preparedStatement(SqlQueries.DELETE_TYPE_TABLE);
 			preparedStatement.setString(1,id);
-			return preparedStatement.executeUpdate() > 0 ? "SuccessFull" : "Notsuccess Full Id Not found";
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "Your query have false some where";
+		return LogInfo.EXCEPTION_INFO;
 	}
 
 }

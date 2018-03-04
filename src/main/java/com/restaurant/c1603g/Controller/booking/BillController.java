@@ -29,8 +29,8 @@ public class BillController {
 	}
 
 	@GetMapping("/get/bills")
-	public List<Bill> getManyBillByName(@RequestParam("name") String name) {
-		return billService.getManyBillByName(name);
+	public List<Bill> getManyBillByIdBooking(@RequestParam("Id") String id) {
+		return billService.getManyBillByIdBooking(id);
 	}
 
 	@PostMapping("/insert/bill")

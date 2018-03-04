@@ -2,6 +2,7 @@ package com.restaurant.c1603g.Factory.booking;
 
 import java.util.List;
 
+import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.DAO.CommonDAO;
 import com.restaurant.c1603g.DAO.booking.BillDAO;
 import com.restaurant.c1603g.Entity.booking.Bill;
@@ -21,31 +22,33 @@ public class BillFactory implements CrudEntity<Bill> {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public List<Bill> getManyBillByIdBooking(String id) {
+			return new BillDAO().getManyEntityByIdBooking(id);
+	}
 
 	@Override
 	public String insertEntity(Bill bill) {
 		DeclareId declare = new CommonDAO().getIdOfEntity("BI");
 		bill.setId(declare.toString());
 		String info = new BillDAO().insertEntity(bill);
-		if(!info.equals("Exception") && info != null) {
+		if(!info.equals(LogInfo.EXEPTION) && info != null) {
 			new CommonDAO().updateIdOfEntity(declare.getNameId(),declare.getValue());
-			return "Successfull Done Ok";
+			return LogInfo.SUCCESS_FULL;
 		}else {
-			return "Not Done Now Exception call";
+			return LogInfo.EXCEPTION_INFO;
 		}
 		
 	}
 
 	@Override
-	public String updateEntity(Bill e) {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateEntity(Bill bill) {
+		return new BillDAO().updateEntity(bill);
 	}
 
 	@Override
 	public String deleteEntity(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		return new BillDAO().deleteEntity(id);
 	}
 
 }

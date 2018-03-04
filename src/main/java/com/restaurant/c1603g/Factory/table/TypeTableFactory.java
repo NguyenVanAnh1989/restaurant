@@ -2,6 +2,9 @@ package com.restaurant.c1603g.Factory.table;
 
 import java.util.List;
 
+import org.apache.commons.logging.Log;
+
+import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.DAO.CommonDAO;
 import com.restaurant.c1603g.DAO.table.TypeTableDAO;
 import com.restaurant.c1603g.Entity.other.DeclareId;
@@ -24,11 +27,12 @@ public class TypeTableFactory implements CrudEntity<TypeTable> {
 	public String insertEntity(TypeTable typeTable) {
 		DeclareId declare = new CommonDAO().getIdOfEntity("TT");
 		typeTable.setId(declare.toString());
-		if(new TypeTableDAO().insertEntity(typeTable) != null) {
+		String info = new TypeTableDAO().insertEntity(typeTable);
+		if(info.equals(LogInfo.SUCCESS_FULL)) {
 			new CommonDAO().updateIdOfEntity(declare.getNameId(),declare.getValue());
-			return "Success Full Insert";
+			return info;
 		}else {
-			return "Not Success Full can be duplicate or Fail some thing";
+			return info;
 		}
 	}
 
