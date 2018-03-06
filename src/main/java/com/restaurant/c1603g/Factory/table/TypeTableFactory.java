@@ -2,8 +2,6 @@ package com.restaurant.c1603g.Factory.table;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-
 import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.DAO.CommonDAO;
 import com.restaurant.c1603g.DAO.table.TypeTableDAO;

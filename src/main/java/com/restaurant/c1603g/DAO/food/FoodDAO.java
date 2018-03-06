@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.Constant.SqlQueries;
 import com.restaurant.c1603g.DAO.Repository.RepositoryDAO;
 import com.restaurant.c1603g.DAO.Repository.SqlConnectDAO;
@@ -77,11 +78,11 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 			preparedStatement.setFloat(5,(float)food.getPrice());
 			preparedStatement.setInt(6,food.getActivated());
 			preparedStatement.setString(7,food.getId());
-			return preparedStatement.executeUpdate() > 0 ? "Success Full update" : "Data Not available";
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "Not success Sql not correct";
+		return LogInfo.EXCEPTION_INFO;
 	}
 
 	@Override
@@ -90,11 +91,11 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 		try {
 			PreparedStatement preparedStatement = getConnection().prepareStatement(SqlQueries.DELETE_FOOD);
 			preparedStatement.setString(1,id);
-			return preparedStatement.executeUpdate() > 0 ? "Success full Delete" : "Data Not valid";
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "false : Sql not correct See Log inside controler";
+		return LogInfo.EXCEPTION_INFO;
 		
 	}
 
@@ -110,11 +111,11 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 			preparedStatement.setString(5,food.getDescription());
 			preparedStatement.setFloat(6,(float)food.getPrice());
 			preparedStatement.setInt(7,food.getActivated());
-			return preparedStatement.executeUpdate() > 0 ? "Success Full update" : "Data Not available";
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "Not success Sql not correct";
+		return LogInfo.EXCEPTION_INFO;
 	}
 	
 }

@@ -5,7 +5,7 @@ public class TypeFood {
 	private String name;
 	private String description;
 	private String unit;
-	private int active;
+	private int activated;
 
 	public String getId() {
 		return id;
@@ -39,12 +39,12 @@ public class TypeFood {
 		this.unit = unit;
 	}
 
-	public int getActive() {
-		return active;
+	public int getActivated() {
+		return activated;
 	}
 
-	public void setActive(int active) {
-		this.active = active;
+	public void setActivated(int activated) {
+		this.activated = activated;
 	}
 
 }

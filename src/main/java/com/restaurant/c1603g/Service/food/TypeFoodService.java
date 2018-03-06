@@ -17,10 +17,7 @@ public class TypeFoodService {
 	}
 
 	public String insertTypeFood(TypeFood typefood) {
-		if (new TypeFoodFactory().insertEntity(typefood) != null) {
-			return "Successfull";
-		} else
-			return "not success";
+		return new TypeFoodFactory().insertEntity(typefood);
 	}
 
 	public String updateTypeFood(TypeFood typefood) {

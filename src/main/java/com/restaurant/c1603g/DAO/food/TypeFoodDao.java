@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.Constant.SqlQueries;
 import com.restaurant.c1603g.DAO.Repository.RepositoryDAO;
 import com.restaurant.c1603g.DAO.Repository.SqlConnectDAO;
@@ -26,7 +28,7 @@ public class TypeFoodDao extends SqlConnectDAO implements RepositoryDAO<TypeFood
 				typeFood.setName(result.getString(2));
 				typeFood.setDescription(result.getString(3));
 				typeFood.setUnit(result.getString(4));
-				typeFood.setActive(result.getInt(5));
+				typeFood.setActivated(result.getInt(5));
 				return typeFood;
 			}
 		} catch (SQLException e) {
@@ -50,7 +52,7 @@ public class TypeFoodDao extends SqlConnectDAO implements RepositoryDAO<TypeFood
 				typeFood.setName(result.getString(2));
 				typeFood.setDescription(result.getString(3));
 				typeFood.setUnit(result.getString(4));
-				typeFood.setActive(result.getInt(5));
+				typeFood.setActivated(result.getInt(5));
 				listTypeFood.add(typeFood);
 			}
 			return listTypeFood;
@@ -68,13 +70,12 @@ public class TypeFoodDao extends SqlConnectDAO implements RepositoryDAO<TypeFood
 			preparedStatement.setString(1,typeFood.getName());
 			preparedStatement.setString(2, typeFood.getDescription());
 			preparedStatement.setString(3, typeFood.getUnit());
-			preparedStatement.setInt(4,typeFood.getActive());
-			preparedStatement.setString(5,typeFood.getId());
-			return preparedStatement.executeUpdate() > 0 ? "Success full update" : "Data Not valid";
+			preparedStatement.setString(4,typeFood.getId());
+			return preparedStatement.executeUpdate() > 0 ?  LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "false : Sql not correct See Log inside controler";
+		return LogInfo.EXCEPTION_INFO;
 	}
 
 	@Override
@@ -82,11 +83,11 @@ public class TypeFoodDao extends SqlConnectDAO implements RepositoryDAO<TypeFood
 		try {
 			PreparedStatement preparedStatement = getConnection().prepareStatement(SqlQueries.DELETE_TYPE_FOOD);
 			preparedStatement.setString(1,id);
-			return preparedStatement.executeUpdate() > 0 ? "Success full Delete" : "Data Not valid";
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "false : Sql not correct See Log inside controler";
+		return LogInfo.EXCEPTION_INFO;
 	}
 
 	@Override
@@ -97,12 +98,11 @@ public class TypeFoodDao extends SqlConnectDAO implements RepositoryDAO<TypeFood
 			prepareState.setString(2,typefood.getName());
 			prepareState.setString(3, typefood.getDescription());
 			prepareState.setString(4, typefood.getUnit());
-			prepareState.setInt(5,typefood.getActive());
-			return prepareState.executeUpdate() > 0 ? "Success full Insert" : "Data Not valid";
+			return prepareState.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "false : Sql not correct See Log inside controler";
+		return LogInfo.EXCEPTION_INFO;
 
 	}
 	

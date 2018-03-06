@@ -2,6 +2,7 @@ package com.restaurant.c1603g.Factory.food;
 
 import java.util.List;
 
+import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.DAO.CommonDAO;
 import com.restaurant.c1603g.DAO.food.TypeFoodDao;
 import com.restaurant.c1603g.Entity.food.TypeFood;
@@ -14,11 +15,12 @@ public class TypeFoodFactory implements CrudEntity<TypeFood>{
 	public String insertEntity(TypeFood typeFood) {
 		DeclareId declare = new CommonDAO().getIdOfEntity("TF");
 		typeFood.setId(declare.toString());
-		if(new TypeFoodDao().insertEntity(typeFood) != null) {
+		String info = new TypeFoodDao().insertEntity(typeFood);
+		if(info.equals(LogInfo.SUCCESS_FULL)) {
 			new CommonDAO().updateIdOfEntity(declare.getNameId(),declare.getValue());
-			return "Success Full Insert";
+			return info;
 		}else {
-			return "Not Success Full can be duplicate or Fail some thing";
+			return info;
 		}
 	}
 
