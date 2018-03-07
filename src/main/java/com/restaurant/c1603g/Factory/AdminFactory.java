@@ -31,12 +31,11 @@ public class AdminFactory implements CrudEntity<Admin> {
 			return codevalid;
 		}
 		String info = new AdminDAO().insertEntity(admin);
-		if (info == LogInfo.EXEPTION || info == null) {
-			return LogInfo.EXEPTION;
-		} else {
+		if (info.equals(LogInfo.SUCCESS_FULL)) {
 			new CommonDAO().updateIdOfEntity(declare.getNameId(), declare.getValue());
 			return info;
 		}
+		return info;
 	}
 
 	@Override

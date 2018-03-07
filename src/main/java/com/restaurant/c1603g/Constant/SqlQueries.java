@@ -48,17 +48,6 @@ public class SqlQueries {
 
 	public static final String DELETE_TYPE_TABLE = "UPDATE tblTypeTable SET activated = 0 WHERE id = ?";
 
-	// SQL for Service
-	public static final String GET_SERVICE = "SELECT * FROM tblService WHERE id = ?";
-
-	public static final String GET_SERVICE_BY_NAME = "SELECT * FROM tblService WHERE name LIKE ?";
-
-	public static final String INSERT_SERVICE = "INSERT INTO tblService VALUES (?,?,?,?,?,?)";
-
-	public static final String UPDATE_SERVICE = "UPDATE tblService SET name =? , description =? ,discount =? ,image =? ,activated =? WHERE id = ?";
-
-	public static final String DELETE_SERVICE = "UPDATE tblService SET activated = 0 WHERE id = ?";
-
 	// SQL for Receptionist
 
 	public static final String GET_RECEPTIONIST = "SELECT * FROM tblReceptionist WHERE id = ?";

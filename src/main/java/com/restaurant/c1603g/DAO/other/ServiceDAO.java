@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.restaurant.c1603g.Constant.SqlQueries;
+import com.restaurant.c1603g.Constant.LogInfo;
+import com.restaurant.c1603g.Constant.OtherQueries;
 import com.restaurant.c1603g.DAO.Repository.RepositoryDAO;
 import com.restaurant.c1603g.DAO.Repository.SqlConnectDAO;
 import com.restaurant.c1603g.Entity.other.EntityService;
@@ -18,7 +19,7 @@ public class ServiceDAO extends SqlConnectDAO implements RepositoryDAO<EntitySer
 		PreparedStatement preparedStatement;
 		EntityService entity = null;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.GET_SERVICE);
+			preparedStatement = preparedStatement(OtherQueries.GET_SERVICE);
 			preparedStatement.setString(1,id);
 			ResultSet result = preparedStatement.executeQuery();
 			if(result.next()) {
@@ -42,7 +43,7 @@ public class ServiceDAO extends SqlConnectDAO implements RepositoryDAO<EntitySer
 		PreparedStatement preparedStatement;
 		List<EntityService> listService = new ArrayList<EntityService>();
 		try {
-			preparedStatement = preparedStatement(SqlQueries.GET_SERVICE_BY_NAME);
+			preparedStatement = preparedStatement(OtherQueries.GET_SERVICE_BY_NAME);
 			preparedStatement.setString(1,"%"+name+"%");
 			ResultSet result = preparedStatement.executeQuery();
 			while(result.next()) {
@@ -65,49 +66,48 @@ public class ServiceDAO extends SqlConnectDAO implements RepositoryDAO<EntitySer
 	public String insertEntity(EntityService service) {
 		PreparedStatement preparedStatement;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.INSERT_SERVICE);
+			preparedStatement = preparedStatement(OtherQueries.INSERT_SERVICE);
 			preparedStatement.setString(1,service.getId());
 			preparedStatement.setString(2,service.getName());
 			preparedStatement.setString(3,service.getDescription());
 			preparedStatement.setInt(4,service.getDiscount());
 			preparedStatement.setString(5,service.getImage());
-			preparedStatement.setInt(6, service.getActivated());
-			return preparedStatement.executeUpdate() > 0 ? "SuccessFull" : null;
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
-		return "Exception";
+		return LogInfo.EXCEPTION_INFO;
 	}
 
 	@Override
 	public String updateEntity(EntityService service) {
 		PreparedStatement preparedStatement;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.UPDATE_SERVICE);		
+			preparedStatement = preparedStatement(OtherQueries.UPDATE_SERVICE);		
 			preparedStatement.setString(1,service.getName());
 			preparedStatement.setString(2,service.getDescription());
 			preparedStatement.setInt(3,service.getDiscount());
 			preparedStatement.setString(4,service.getImage());
-			preparedStatement.setInt(5, service.getActivated());
+			preparedStatement.setInt(5, 1);
 			preparedStatement.setString(6,service.getId());
-			return preparedStatement.executeUpdate() > 0 ? "SuccessFull" : "Not success full Id not allow";
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
-		return "Exception";
+		return LogInfo.EXCEPTION_INFO;
 	}
 
 	@Override
 	public String deleteEntity(String id) {
 		PreparedStatement preparedStatement;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.DELETE_SERVICE);		
+			preparedStatement = preparedStatement(OtherQueries.DELETE_SERVICE);		
 			preparedStatement.setString(1,id);
-			return preparedStatement.executeUpdate() > 0 ? "DELETE SuccessFull" : "Not success full Id not allow";
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException exception) {
 			exception.printStackTrace();
 		}
-		return "Exception";
+		return LogInfo.EXCEPTION_INFO;
 	}
 
 }
