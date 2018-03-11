@@ -3,7 +3,11 @@ package com.restaurant.c1603g.Controller.other;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,7 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.restaurant.c1603g.Service.ImageService;
 
@@ -19,31 +25,19 @@ import com.restaurant.c1603g.Service.ImageService;
 @CrossOrigin
 @RequestMapping("/api")
 public class ImageController {
-	
+
 	@Autowired
 	ImageService imageService;
-	
-	
-	@GetMapping("/image/{url}")
-	public byte[] getImage(@PathVariable("url") String url) {
-		File file = new File("D:/image/"+url+".jpg");
-		byte[] b = new byte[2048];
-		FileInputStream fileInputStream;
-		try {
-			fileInputStream = new FileInputStream(file);
-			fileInputStream.read(b);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return b;
+
+	@GetMapping("/image/{folder}/{image}")
+	public byte[] getImage(@PathVariable("folder") String folder,@PathVariable("image") String image) {
+		return imageService.getImage(folder,image);
 	}
-	
-	@PostMapping("/insert/image/{folder}")
-	public String insertImage() {
-		return null;
+
+	@PostMapping("/create/image/{folder}")
+	public String insertImage(@RequestParam("imageUpload") MultipartFile multipartFile,
+			@PathVariable("folder") String folder) {
+		return imageService.insertService(multipartFile, folder);
 	}
-	
-	
+
 }

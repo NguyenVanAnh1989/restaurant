@@ -76,7 +76,7 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 			preparedStatement.setString(3,food.getImage());
 			preparedStatement.setString(4,food.getDescription());
 			preparedStatement.setFloat(5,(float)food.getPrice());
-			preparedStatement.setInt(6,food.getActivated());
+			preparedStatement.setInt(6,1);
 			preparedStatement.setString(7,food.getId());
 			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
@@ -110,7 +110,7 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 			preparedStatement.setString(4,food.getImage());
 			preparedStatement.setString(5,food.getDescription());
 			preparedStatement.setFloat(6,(float)food.getPrice());
-			preparedStatement.setInt(7,food.getActivated());
+			preparedStatement.setInt(7,1);
 			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
