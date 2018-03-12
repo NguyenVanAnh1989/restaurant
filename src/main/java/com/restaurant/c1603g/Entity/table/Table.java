@@ -3,6 +3,7 @@ package com.restaurant.c1603g.Entity.table;
 public class Table {
 
 	private String id;
+	private String name;
 	private String type_table_id;
 	private int activated;
 
@@ -12,6 +13,14 @@ public class Table {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getType_table_id() {

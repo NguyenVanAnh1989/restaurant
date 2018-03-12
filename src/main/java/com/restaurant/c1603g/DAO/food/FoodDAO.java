@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.restaurant.c1603g.Constant.FoodQueries;
 import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.Constant.SqlQueries;
 import com.restaurant.c1603g.DAO.Repository.RepositoryDAO;
@@ -19,7 +20,7 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 		PreparedStatement preparedStatement;
 		Food food;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.SEARCH_FOOD);
+			preparedStatement = preparedStatement(FoodQueries.SEARCH_FOOD);
 			preparedStatement.setString(1,id);
 			ResultSet result = preparedStatement.executeQuery();
 			while (result.next()) {
@@ -31,6 +32,7 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 				food.setDescription(result.getString(5));
 				food.setPrice(result.getFloat(6));
 				food.setActivated(result.getInt(7));
+				food.setDiscount(result.getInt(8));
 				return food;
 			}
 		} catch (SQLException e) {
@@ -45,7 +47,7 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 		PreparedStatement preparedStatement;
 		Food food;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.SEARCH_ALL_FOOD);
+			preparedStatement = preparedStatement(FoodQueries.SEARCH_ALL_FOOD);
 			preparedStatement.setString(1,"%"+name+"%");
 			ResultSet result = preparedStatement.executeQuery();
 			while (result.next()) {
@@ -57,6 +59,7 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 				food.setDescription(result.getString(5));
 				food.setPrice(result.getFloat(6));
 				food.setActivated(result.getInt(7));
+				food.setDiscount(result.getInt(8));
 				listFood.add(food);
 			}
 			return listFood;
@@ -70,14 +73,15 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 	public String updateEntity(Food food) {
 		PreparedStatement preparedStatement;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.UPDATE_FOOD);
+			preparedStatement = preparedStatement(FoodQueries.UPDATE_FOOD);
 			preparedStatement.setString(1,food.getType_food_id());
 			preparedStatement.setString(2,food.getName());
 			preparedStatement.setString(3,food.getImage());
 			preparedStatement.setString(4,food.getDescription());
 			preparedStatement.setFloat(5,(float)food.getPrice());
 			preparedStatement.setInt(6,1);
-			preparedStatement.setString(7,food.getId());
+			preparedStatement.setInt(7,food.getDiscount());
+			preparedStatement.setString(8,food.getId());
 			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -89,7 +93,7 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 	public String deleteEntity(String id) {
 		
 		try {
-			PreparedStatement preparedStatement = getConnection().prepareStatement(SqlQueries.DELETE_FOOD);
+			PreparedStatement preparedStatement = getConnection().prepareStatement(FoodQueries.DELETE_FOOD);
 			preparedStatement.setString(1,id);
 			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
@@ -103,7 +107,7 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 	public String insertEntity(Food food) {
 		PreparedStatement preparedStatement;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.INSERT_FOOD);
+			preparedStatement = preparedStatement(FoodQueries.INSERT_FOOD);
 			preparedStatement.setString(1,food.getId());
 			preparedStatement.setString(2,food.getType_food_id());
 			preparedStatement.setString(3,food.getName());
@@ -111,6 +115,7 @@ public class FoodDAO extends SqlConnectDAO implements RepositoryDAO<Food>{
 			preparedStatement.setString(5,food.getDescription());
 			preparedStatement.setFloat(6,(float)food.getPrice());
 			preparedStatement.setInt(7,1);
+			preparedStatement.setFloat(8,food.getDiscount());
 			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();

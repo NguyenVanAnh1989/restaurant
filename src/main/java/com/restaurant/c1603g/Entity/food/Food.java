@@ -9,6 +9,7 @@ public class Food {
 	private String description;
 	private double price;
 	private int activated;
+	private int discount;
 	
 	public String getId() {
 		return id;
@@ -52,7 +53,11 @@ public class Food {
 	public void setActivated(int activated) {
 		this.activated = activated;
 	}
-
-	
+	public int getDiscount() {
+		return discount;
+	}
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
 	
 }

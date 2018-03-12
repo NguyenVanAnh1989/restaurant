@@ -18,11 +18,10 @@ public class FoodQueries {
 
 	public static final String SEARCH_ALL_FOOD = "SELECT * FROM tblFood WHERE name LIKE ?";
 
-	public static final String INSERT_FOOD = "INSERT INTO tblFood VALUES (?,?,?,?,?,?,?)";
+	public static final String INSERT_FOOD = "INSERT INTO tblFood VALUES (?,?,?,?,?,?,?,?)";
 
-	public static final String UPDATE_FOOD = "UPDATE tblFood SET type_food_id=?,name=? ,image=?,description=? ,price=?,activated=? WHERE id= ?";
+	public static final String UPDATE_FOOD = "UPDATE tblFood SET type_food_id=?,name=? ,image=?,description=? ,price=?,activated=?,discount=? WHERE id= ?";
 
 	public static final String DELETE_FOOD = "UPDATE tblFood SET activated = 0 WHERE id = ?";
-	
-	
+
 }

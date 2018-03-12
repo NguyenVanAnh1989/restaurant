@@ -10,10 +10,8 @@ public class Booking {
 	private String table_Id;
 	private String service_Id;
 	private String reception_Id;
-	private String date_Book_Start;
-	private String date_Book_End;
-	private double total;
-	private String date_Pay;
+	private String date_Book;
+	private int status;
 
 	public String getId() {
 		return id;
@@ -79,36 +77,21 @@ public class Booking {
 		this.reception_Id = reception_Id;
 	}
 
-	public String getDate_Book_Start() {
-		return date_Book_Start;
+	public String getDate_Book() {
+		return date_Book;
 	}
 
-	public void setDate_Book_Start(String date_Book_Start) {
-		this.date_Book_Start = date_Book_Start;
+	public void setDate_Book(String date_Book) {
+		this.date_Book = date_Book;
 	}
 
-	public String getDate_Book_End() {
-		return date_Book_End;
+	public int getStatus() {
+		return status;
 	}
 
-	public void setDate_Book_End(String date_Book_End) {
-		this.date_Book_End = date_Book_End;
+	public void setStatus(int status) {
+		this.status = status;
 	}
-
-	public double getTotal() {
-		return total;
-	}
-
-	public void setTotal(double total) {
-		this.total = total;
-	}
-
-	public String getDate_Pay() {
-		return date_Pay;
-	}
-
-	public void setDate_Pay(String date_Pay) {
-		this.date_Pay = date_Pay;
-	}
+	
 
 }
