@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.restaurant.c1603g.Constant.FoodQueries;
 import com.restaurant.c1603g.Constant.LogInfo;
-import com.restaurant.c1603g.Constant.SqlQueries;
 import com.restaurant.c1603g.DAO.Repository.RepositoryDAO;
 import com.restaurant.c1603g.DAO.Repository.SqlConnectDAO;
 import com.restaurant.c1603g.Entity.food.Food;

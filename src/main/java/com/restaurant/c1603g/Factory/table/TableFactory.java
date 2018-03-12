@@ -2,6 +2,7 @@ package com.restaurant.c1603g.Factory.table;
 
 import java.util.List;
 
+import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.DAO.CommonDAO;
 import com.restaurant.c1603g.DAO.table.TableDAO;
 import com.restaurant.c1603g.Entity.other.DeclareId;
@@ -25,11 +26,11 @@ public class TableFactory implements CrudEntity<Table>{
 		DeclareId declare = new CommonDAO().getIdOfEntity("TB");
 		table.setId(declare.toString());
 		String info = new TableDAO().insertEntity(table);
-		if(!info.equals("Exception") && info != null) {
+		if(info.equals(LogInfo.SUCCESS_FULL)) {
 			new CommonDAO().updateIdOfEntity(declare.getNameId(),declare.getValue());
-			return "Successfull Done Ok";
+			return info;
 		}else {
-			return "Not Done Now Exception call";
+			return info;
 		}		
 	}
 
