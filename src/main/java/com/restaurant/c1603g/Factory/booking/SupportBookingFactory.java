@@ -1,38 +1,48 @@
 package com.restaurant.c1603g.Factory.booking;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.restaurant.c1603g.DAO.booking.SupportBookingDAO;
+import com.restaurant.c1603g.Entity.table.Table;
 
 public class SupportBookingFactory {
-	
-	Map<String,List<Date>> listTable = new HashMap<>(); 
-	
-	public String checkTableByTypeSeat(String typeSeat) {
-		List<String> listIdTable = new SupportBookingDAO().getIdTableByType(typeSeat);
-		for(String id : listIdTable) {
-			listTable.put(id, new ArrayList<>());
-		}
-		for (Map.Entry<String,List<Date>> entry : listTable.entrySet()) {
-			System.out.println(entry.getKey());
-		}
-		return null;
-	}
-		
-	public Map<String,List<String>> getIdTableInBooking(String typeSeat) {
-		Map<String,List<String>> mapTableBooking = new SupportBookingDAO().getIdTableInBooking(typeSeat);
-		for (Map.Entry<String,List<String>> entry : mapTableBooking.entrySet()) {
-			System.out.println(entry.getKey());
-			for(String time : entry.getValue()) {
-				System.out.println(time);
+
+	public List<Table> getlistTableAvailable(String dateTime) {
+		Map<String, Table> mapTable = new HashMap<String, Table>();
+		for (Table tbl : getAllTableStatusForBooking(dateTime)) {
+			if (tbl.getActivated() == 1) {
+				mapTable.put(tbl.getName(), tbl);
 			}
 		}
-		return mapTableBooking;
+		List<Table> listTableAvailable = new ArrayList<>();
+		for (Map.Entry<String, Table> _map : mapTable.entrySet()) {
+			listTableAvailable.add(_map.getValue());
+		}
+		return listTableAvailable;
 	}
-	
-	
+
+	public List<Table> getAllTableStatusForBooking(String dateTime) {
+		List<String> tableNotValid = getTableNotValid(dateTime);
+		List<Table> listTableStatus = getAllTable();
+		for (Table table : listTableStatus) {
+			if (!tableNotValid.contains(table.getId())) {
+				table.setActivated(2);
+			}
+		}
+		return listTableStatus;
+
+	}
+
+	public List<String> getTableNotValid(String dateTime) {
+		return new SupportBookingDAO().getIdTableInBooking(dateTime);
+	}
+
+	public List<Table> getAllTable() {
+		List<Table> listIdTable = new SupportBookingDAO().getAllTable();
+		return listIdTable;
+	}
+
 }

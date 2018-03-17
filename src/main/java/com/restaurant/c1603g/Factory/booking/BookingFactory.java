@@ -2,6 +2,7 @@ package com.restaurant.c1603g.Factory.booking;
 
 import java.util.List;
 
+import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.DAO.CommonDAO;
 import com.restaurant.c1603g.DAO.booking.BookingDAO;
 import com.restaurant.c1603g.Entity.booking.Booking;
@@ -25,11 +26,11 @@ public class BookingFactory implements CrudEntity<Booking>{
 		DeclareId declare = new CommonDAO().getIdOfEntity("BK");
 		booking.setId(declare.toString());
 		String info = new BookingDAO().insertEntity(booking);
-		if(!info.equals("Exception") && info != null) {
+		if(info.equals(LogInfo.SUCCESS_FULL)) {
 			new CommonDAO().updateIdOfEntity(declare.getNameId(),declare.getValue());
-			return "Successfull Done Ok";
+			return info;
 		}else {
-			return "Not Done Now Exception call";
+			return info;
 		}		
 
 	}

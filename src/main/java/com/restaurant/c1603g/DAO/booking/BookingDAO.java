@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.restaurant.c1603g.Constant.BookingQueries;
+import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.DAO.Repository.RepositoryDAO;
 import com.restaurant.c1603g.DAO.Repository.SqlConnectDAO;
 import com.restaurant.c1603g.Entity.booking.Booking;
@@ -46,16 +47,15 @@ public class BookingDAO extends SqlConnectDAO implements RepositoryDAO<Booking> 
 			preparedStatement.setString(2, booking.getCustomer_Name());
 			preparedStatement.setString(3, booking.getCustomer_Phone());
 			preparedStatement.setString(4, booking.getCustomer_Mail());
-			preparedStatement.setInt(5, booking.getCustommer_Number());
-			preparedStatement.setString(6, booking.getTable_Id());
-			preparedStatement.setString(7, booking.getService_Id());
-			preparedStatement.setString(8, booking.getDate_Book());
-			preparedStatement.setInt(9, booking.getStatus());
-			return preparedStatement.executeUpdate() > 0 ? "Success Full Insert" : null;
+			preparedStatement.setString(5, booking.getTable_Id());
+			preparedStatement.setString(6, booking.getService_Id());
+			preparedStatement.setString(7, booking.getDate_Book());
+			preparedStatement.setInt(8,1);
+			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return "Exception";
+		return LogInfo.EXCEPTION_INFO;
 	}
 
 	@Override
@@ -65,12 +65,11 @@ public class BookingDAO extends SqlConnectDAO implements RepositoryDAO<Booking> 
 			preparedStatement.setString(1, booking.getCustomer_Name());
 			preparedStatement.setString(2, booking.getCustomer_Phone());
 			preparedStatement.setString(3, booking.getCustomer_Mail());
-			preparedStatement.setInt(4, booking.getCustommer_Number());
-			preparedStatement.setString(5, booking.getTable_Id());
-			preparedStatement.setString(6, booking.getService_Id());
-			preparedStatement.setString(7, booking.getDate_Book());
-			preparedStatement.setInt(8, booking.getStatus());
-			preparedStatement.setString(9, booking.getId());
+			preparedStatement.setString(4, booking.getTable_Id());
+			preparedStatement.setString(5, booking.getService_Id());
+			preparedStatement.setString(6, booking.getDate_Book());
+			preparedStatement.setInt(7, booking.getActivated());
+			preparedStatement.setString(8, booking.getId());
 			return preparedStatement.executeUpdate() > 0 ? "Success Full Insert" : null;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -93,12 +92,11 @@ public class BookingDAO extends SqlConnectDAO implements RepositoryDAO<Booking> 
 				booking.setCustomer_Name(result.getString(2));
 				booking.setCustomer_Phone(result.getString(3));
 				booking.setCustomer_Mail(result.getString(4));
-				booking.setCustommer_Number(result.getInt(5));
-				booking.setTable_Id(result.getString(6));
-				booking.setService_Id(result.getString(7));
-				booking.setDate_Book(result.getString(8));
-				booking.setStatus(result.getInt(9));
-			}
+				booking.setTable_Id(result.getString(5));
+				booking.setService_Id(result.getString(6));
+				booking.setDate_Book(result.getString(7));
+				booking.setActivated(result.getInt(8));
+			}	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -117,11 +115,10 @@ public class BookingDAO extends SqlConnectDAO implements RepositoryDAO<Booking> 
 				booking.setCustomer_Name(result.getString(2));
 				booking.setCustomer_Phone(result.getString(3));
 				booking.setCustomer_Mail(result.getString(4));
-				booking.setCustommer_Number(result.getInt(5));
 				booking.setTable_Id(result.getString(6));
 				booking.setService_Id(result.getString(7));
 				booking.setDate_Book(result.getString(8));
-				booking.setStatus(result.getInt(9));
+				booking.setActivated(result.getInt(9));
 				listBooking.add(booking);
 			}
 		} catch (SQLException e) {

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.restaurant.c1603g.Entity.booking.Booking;
+import com.restaurant.c1603g.Entity.table.Table;
 import com.restaurant.c1603g.Service.booking.BookingService;
 
 @RestController
@@ -46,4 +47,10 @@ public class BookingController {
 	public String deleteBooking(@RequestParam("Id") String id) {
 		return bookingService.deleteBooking(id);
 	}
+	
+	@GetMapping("/get/validTable")
+	public List<Table> getValidTable(@RequestParam("dateTime") String dateTime) {
+		return bookingService.getListTableForBooking(dateTime);
+	}
+	
 }

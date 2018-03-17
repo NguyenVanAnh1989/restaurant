@@ -6,12 +6,10 @@ public class Booking {
 	private String customer_Name;
 	private String customer_Phone;
 	private String customer_Mail;
-	private int custommer_Number;
 	private String table_Id;
 	private String service_Id;
-	private String reception_Id;
 	private String date_Book;
-	private int status;
+	private int activated;
 
 	public String getId() {
 		return id;
@@ -45,14 +43,6 @@ public class Booking {
 		this.customer_Mail = customer_Mail;
 	}
 
-	public int getCustommer_Number() {
-		return custommer_Number;
-	}
-
-	public void setCustommer_Number(int custommer_Number) {
-		this.custommer_Number = custommer_Number;
-	}
-
 	public String getTable_Id() {
 		return table_Id;
 	}
@@ -69,14 +59,6 @@ public class Booking {
 		this.service_Id = service_Id;
 	}
 
-	public String getReception_Id() {
-		return reception_Id;
-	}
-
-	public void setReception_Id(String reception_Id) {
-		this.reception_Id = reception_Id;
-	}
-
 	public String getDate_Book() {
 		return date_Book;
 	}
@@ -85,13 +67,12 @@ public class Booking {
 		this.date_Book = date_Book;
 	}
 
-	public int getStatus() {
-		return status;
+	public int getActivated() {
+		return activated;
 	}
 
-	public void setStatus(int status) {
-		this.status = status;
+	public void setActivated(int activated) {
+		this.activated = activated;
 	}
-	
 
 }
