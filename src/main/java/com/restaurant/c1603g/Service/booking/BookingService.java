@@ -30,7 +30,7 @@ public class BookingService {
 	}
 
 	public List<Table> getListTableForBooking(String dateTime){
-		return new SupportBookingFactory().getlistTableAvailable(dateTime);
+		return new SupportBookingFactory().getListTableAvailable(dateTime);
 	}
 	
 	public String deleteBooking(String id) {

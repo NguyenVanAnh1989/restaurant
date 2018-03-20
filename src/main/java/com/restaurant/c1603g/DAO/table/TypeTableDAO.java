@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.restaurant.c1603g.Constant.LogInfo;
 import com.restaurant.c1603g.Constant.SqlQueries;
+import com.restaurant.c1603g.Constant.TableQueries;
 import com.restaurant.c1603g.DAO.Repository.RepositoryDAO;
 import com.restaurant.c1603g.DAO.Repository.SqlConnectDAO;
 import com.restaurant.c1603g.Entity.table.TypeTable;
@@ -44,7 +45,7 @@ public class TypeTableDAO extends SqlConnectDAO implements RepositoryDAO<TypeTab
 		PreparedStatement preparedStatement;
 		TypeTable typeTable;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.GET_TYPE_TABLE_BY_NAME);
+			preparedStatement = preparedStatement(TableQueries.GET_TYPE_TABLE_BY_NAME);
 			preparedStatement.setString(1, "%" + name + "%");
 			ResultSet result = preparedStatement.executeQuery();
 			while (result.next()) {
@@ -68,7 +69,7 @@ public class TypeTableDAO extends SqlConnectDAO implements RepositoryDAO<TypeTab
 	public String insertEntity(TypeTable typeTable) {
 		PreparedStatement preparedStatement;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.INSERT_TYPE_TABLE);
+			preparedStatement = preparedStatement(TableQueries.INSERT_TYPE_TABLE);
 			preparedStatement.setString(1, typeTable.getId());
 			preparedStatement.setString(2, typeTable.getType_seat());
 			preparedStatement.setString(3, typeTable.getType_room());
@@ -85,7 +86,7 @@ public class TypeTableDAO extends SqlConnectDAO implements RepositoryDAO<TypeTab
 	public String updateEntity(TypeTable typeTable) {
 		PreparedStatement preparedStatement;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.UPDATE_TYPE_TABLE);
+			preparedStatement = preparedStatement(TableQueries.UPDATE_TYPE_TABLE);
 			preparedStatement.setString(1, typeTable.getType_seat());
 			preparedStatement.setString(2, typeTable.getType_room());
 			preparedStatement.setString(3, typeTable.getDescription());
@@ -103,7 +104,7 @@ public class TypeTableDAO extends SqlConnectDAO implements RepositoryDAO<TypeTab
 	public String deleteEntity(String id) {
 		PreparedStatement preparedStatement;
 		try {
-			preparedStatement = preparedStatement(SqlQueries.DELETE_TYPE_TABLE);
+			preparedStatement = preparedStatement(TableQueries.DELETE_TYPE_TABLE);
 			preparedStatement.setString(1,id);
 			return preparedStatement.executeUpdate() > 0 ? LogInfo.SUCCESS_FULL : LogInfo.NOT_SUCCESS_FULL;
 		} catch (SQLException e) {

@@ -16,8 +16,8 @@ public class BookingQueries {
 
 	// SQL for support Booking
 
-	public static final String GET_ALL_TABLE = "SELECT tblTable.id,tblTypeTable.type_seat FROM tblTable,tblTypeTable "
-			+ "WHERE tblTable.type_table_id = tblTypeTable.id AND tblTable.activated=1";
+	public static final String GET_ALL_TABLE = "SELECT tblTable.id,tblTable.name,tblTable.type_table_id,tblTypeTable.type_seat FROM tblTable,tblTypeTable "
+			+ "WHERE tblTable.type_table_id = tblTypeTable.id AND tblTable.activated=1 ORDER BY tblTypeTable.type_seat ASC";
 
 	public static final String GET_TABLE_VALID = "SELECT tblTable.id FROM tblTable WHERE tblTable.id NOT IN "
 			+ "(SELECT tblBooking.table_id FROM tblBooking WHERE " + "DATEDIFF(hour ,tblBooking.date_book,?) > -4 AND "

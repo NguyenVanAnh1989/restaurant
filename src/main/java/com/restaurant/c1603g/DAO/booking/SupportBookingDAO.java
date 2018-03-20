@@ -21,7 +21,8 @@ public class SupportBookingDAO extends SqlConnectDAO {
 			while (result.next()) {
 				Table table = new Table();
 				table.setId(result.getString(1));
-				table.setName(result.getString(2));
+				table.setType_table_id(result.getString(3));
+				table.setName(result.getString(2)+"#"+result.getString(4));
 				table.setActivated(1);
 				listTable.add(table);
 			}

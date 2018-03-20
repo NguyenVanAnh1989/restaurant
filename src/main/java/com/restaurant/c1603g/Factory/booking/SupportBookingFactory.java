@@ -10,17 +10,14 @@ import com.restaurant.c1603g.Entity.table.Table;
 
 public class SupportBookingFactory {
 
-	public List<Table> getlistTableAvailable(String dateTime) {
-		Map<String, Table> mapTable = new HashMap<String, Table>();
+	public List<Table> getListTableAvailable(String dateTime) {
+		List<Table> listTableAvailable = new ArrayList<>();
 		for (Table tbl : getAllTableStatusForBooking(dateTime)) {
 			if (tbl.getActivated() == 1) {
-				mapTable.put(tbl.getName(), tbl);
+				listTableAvailable.add(tbl);
 			}
 		}
-		List<Table> listTableAvailable = new ArrayList<>();
-		for (Map.Entry<String, Table> _map : mapTable.entrySet()) {
-			listTableAvailable.add(_map.getValue());
-		}
+
 		return listTableAvailable;
 	}
 
